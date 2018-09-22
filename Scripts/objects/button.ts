@@ -51,7 +51,7 @@ module objects {
          * @param {boolean} [isCentered=false]
          */
         constructor(imageString:string, x:number = 0, y:number = 0, isCentered:boolean = false) {
-            super(imageString);
+            super(managers.Game.assetManager.getResult(imageString));
 
             this.Width = this.getBounds().width;
             this.Height = this.getBounds().height;

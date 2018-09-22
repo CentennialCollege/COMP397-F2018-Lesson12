@@ -27,7 +27,7 @@ var objects;
             if (x === void 0) { x = 0; }
             if (y === void 0) { y = 0; }
             if (isCentered === void 0) { isCentered = false; }
-            var _this = _super.call(this, imageString) || this;
+            var _this = _super.call(this, managers.Game.assetManager.getResult(imageString)) || this;
             _this.Width = _this.getBounds().width;
             _this.Height = _this.getBounds().height;
             if (isCentered) {
