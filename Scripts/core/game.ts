@@ -10,7 +10,7 @@
 
     let assetManifest = [
         {id: "plane", src:"/Assets/images/plane.png"},
-        {id: "cloud", src:"/Assets/images/clound.png"},
+        {id: "cloud", src:"/Assets/images/cloud.png"},
         {id: "island", src:"/Assets/images/island.png"},
         {id: "ocean", src:"/Assets/images/ocean.gif"},
         {id: "engineSound", src:"/Assets/audio/engine.ogg"},
