@@ -13,15 +13,15 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var Player = /** @class */ (function (_super) {
-        __extends(Player, _super);
+    var GameObject = /** @class */ (function (_super) {
+        __extends(GameObject, _super);
         // constructors
-        function Player() {
-            var _this = _super.call(this, managers.Game.assetManager.getResult("plane")) || this;
-            _this.Start();
+        function GameObject(imageString) {
+            var _this = _super.call(this, managers.Game.assetManager.getResult(imageString)) || this;
+            _this._initialize();
             return _this;
         }
-        Object.defineProperty(Player.prototype, "Width", {
+        Object.defineProperty(GameObject.prototype, "Width", {
             // public properties
             get: function () {
                 return this._width;
@@ -33,7 +33,7 @@ var objects;
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(Player.prototype, "Height", {
+        Object.defineProperty(GameObject.prototype, "Height", {
             get: function () {
                 return this._height;
             },
@@ -44,7 +44,7 @@ var objects;
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(Player.prototype, "HalfHeight", {
+        Object.defineProperty(GameObject.prototype, "HalfHeight", {
             get: function () {
                 return this._halfHeight;
             },
@@ -54,7 +54,7 @@ var objects;
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(Player.prototype, "HalfWidth", {
+        Object.defineProperty(GameObject.prototype, "HalfWidth", {
             get: function () {
                 return this._halfWidth;
             },
@@ -65,27 +65,21 @@ var objects;
             configurable: true
         });
         // private methods
-        // public methods
-        Player.prototype.Start = function () {
+        GameObject.prototype._initialize = function () {
             this.Width = this.getBounds().width;
             this.Height = this.getBounds().height;
-            this.regX = this.HalfWidth;
-            this.regY = this.HalfHeight;
-            this.y = 435;
         };
-        Player.prototype.Update = function () {
-            this.x = managers.Game.stage.mouseX;
-            // checks the right boundary
-            if (this.x > 640 - this.HalfWidth) {
-                this.x = 640 - this.HalfWidth;
-            }
-            // check the left boundary
-            if (this.x < this.HalfWidth) {
-                this.x = this.HalfWidth;
-            }
+        // public methods
+        GameObject.prototype.Reset = function () {
         };
-        return Player;
+        GameObject.prototype.Start = function () {
+        };
+        GameObject.prototype.Update = function () {
+        };
+        GameObject.prototype.Destroy = function () {
+        };
+        return GameObject;
     }(createjs.Bitmap));
-    objects.Player = Player;
+    objects.GameObject = GameObject;
 })(objects || (objects = {}));
-//# sourceMappingURL=player.js.map
+//# sourceMappingURL=gameobject.js.map

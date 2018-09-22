@@ -3,11 +3,10 @@
     // game variables
     var canvas;
     var stage;
-    var helloLabel;
-    var clickMeButton;
     var assetManager;
+    // Game Objects
+    var player;
     var assetManifest = [
-        { id: "clickMeButton", src: "/Assets/images/clickMeButton.png" },
         { id: "plane", src: "/Assets/images/plane.png" },
         { id: "cloud", src: "/Assets/images/clound.png" },
         { id: "island", src: "/Assets/images/island.png" },
@@ -35,16 +34,12 @@
     }
     // this is the main game loop
     function Update() {
+        player.Update();
         stage.update();
     }
     function Main() {
-        helloLabel = new objects.Label("Hello, World!", "60px", "Consolas", "#00000", 320, 240, true);
-        stage.addChild(helloLabel);
-        clickMeButton = new objects.Button("clickMeButton", 320, 360, true);
-        stage.addChild(clickMeButton);
-        clickMeButton.on("click", function () {
-            helloLabel.text = "Clicked!";
-        });
+        player = new objects.Player();
+        stage.addChild(player);
     }
     window.addEventListener("load", Init);
 })();

@@ -62,6 +62,16 @@ module objects {
 
         public Update():void {
             this.x = managers.Game.stage.mouseX;
+
+            // checks the right boundary
+            if(this.x > 640 - this.HalfWidth) {
+                this.x = 640 - this.HalfWidth;
+            }
+
+            // check the left boundary
+            if(this.x < this.HalfWidth) {
+                this.x = this.HalfWidth;
+            }
         }
     }
 }

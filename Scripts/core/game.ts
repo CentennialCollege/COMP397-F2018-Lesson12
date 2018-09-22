@@ -3,12 +3,12 @@
     // game variables
     let canvas:HTMLCanvasElement;
     let stage:createjs.Stage;
-    let helloLabel:objects.Label;
-    let clickMeButton:objects.Button;
     let assetManager:createjs.LoadQueue;
 
+    // Game Objects
+    let player:objects.Player;
+
     let assetManifest = [
-        {id: "clickMeButton", src:"/Assets/images/clickMeButton.png"},
         {id: "plane", src:"/Assets/images/plane.png"},
         {id: "cloud", src:"/Assets/images/clound.png"},
         {id: "island", src:"/Assets/images/island.png"},
@@ -41,19 +41,15 @@
     // this is the main game loop
     function Update():void {
 
+        player.Update();
+
         stage.update();
     }
 
     function Main():void {
-        helloLabel = new objects.Label("Hello, World!","60px", "Consolas", "#00000",320,240, true);
-        stage.addChild(helloLabel);
 
-        clickMeButton = new objects.Button("clickMeButton", 320, 360, true);
-        stage.addChild(clickMeButton);
-
-        clickMeButton.on("click", function() {
-            helloLabel.text = "Clicked!";
-        });
+        player = new objects.Player();
+        stage.addChild(player);
 
     }
 
