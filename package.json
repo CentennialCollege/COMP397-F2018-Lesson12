@@ -1,9 +1,9 @@
 {
-  "name": "comp397-f2018-lesson1",
+  "name": "comp397-f2018-lesson3",
   "version": "1.0.0",
   "description": "COMP397 - F2018 - Lesson 1 CreateJS Demo",
   "main": "index.js",
-  "repository": "https://github.com/CentennialCollege/COMP397-F2018-Lesson1.git",
+  "repository": "https://github.com/CentennialCollege/COMP397-F2018-Lesson3.git",
   "author": "Tom Tsiliopoulos <tsiliopoulos@hotmail.com>",
   "license": "MIT",
   "dependencies": {
