@@ -5,9 +5,7 @@
     let stage:createjs.Stage;
     let assetManager:createjs.LoadQueue;
 
-    // Game Objects
-    let player:objects.Player;
-    let ocean:objects.Ocean;
+    let play:scenes.Play;
 
     let assetManifest = [
         {id: "plane", src:"/Assets/images/plane.png"},
@@ -41,22 +39,18 @@
 
     // this is the main game loop
     function Update():void {
-
-        ocean.Update();
-        player.Update();
-
+        play.Update();
+        
         stage.update();
     }
 
     function Main():void {
 
-        // adds ocean to the stage
-        ocean = new objects.Ocean();
-        stage.addChild(ocean);
+        //add the Play scene to the Stage
+        play = new scenes.Play();
+        stage.addChild(play);
 
-        // adds player to the stage
-        player = new objects.Player();
-        stage.addChild(player);
+        
 
     }
 

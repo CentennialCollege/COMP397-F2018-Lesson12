@@ -4,9 +4,7 @@
     var canvas;
     var stage;
     var assetManager;
-    // Game Objects
-    var player;
-    var ocean;
+    var play;
     var assetManifest = [
         { id: "plane", src: "/Assets/images/plane.png" },
         { id: "cloud", src: "/Assets/images/cloud.png" },
@@ -35,17 +33,13 @@
     }
     // this is the main game loop
     function Update() {
-        ocean.Update();
-        player.Update();
+        play.Update();
         stage.update();
     }
     function Main() {
-        // adds ocean to the stage
-        ocean = new objects.Ocean();
-        stage.addChild(ocean);
-        // adds player to the stage
-        player = new objects.Player();
-        stage.addChild(player);
+        //add the Play scene to the Stage
+        play = new scenes.Play();
+        stage.addChild(play);
     }
     window.addEventListener("load", Init);
 })();
