@@ -34,5 +34,13 @@ module objects {
                 this.x = this.HalfWidth;
             }
         }
+
+        public Reset():void {
+
+        }
+
+        public Destroy():void {
+            
+        }
     }
 }

@@ -1,9 +1,9 @@
 {
-  "name": "comp397-f2018-lesson3",
+  "name": "comp397-f2018-lesson4",
   "version": "1.0.0",
-  "description": "COMP397 - F2018 - Lesson 1 CreateJS Demo",
+  "description": "COMP397 - F2018 - Lesson 4 - FSM Intro",
   "main": "index.js",
-  "repository": "https://github.com/CentennialCollege/COMP397-F2018-Lesson3.git",
+  "repository": "https://github.com/CentennialCollege/COMP397-F2018-Lesson4.git",
   "author": "Tom Tsiliopoulos <tsiliopoulos@hotmail.com>",
   "license": "MIT",
   "dependencies": {

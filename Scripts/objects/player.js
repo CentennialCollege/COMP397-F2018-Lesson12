@@ -41,6 +41,10 @@ var objects;
                 this.x = this.HalfWidth;
             }
         };
+        Player.prototype.Reset = function () {
+        };
+        Player.prototype.Destroy = function () {
+        };
         return Player;
     }(objects.GameObject));
     objects.Player = Player;
