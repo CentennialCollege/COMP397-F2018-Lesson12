@@ -34,6 +34,7 @@ var scenes;
             this._ocean.Update();
         };
         Start.prototype.Destroy = function () {
+            this.removeAllChildren();
         };
         Start.prototype.Reset = function () {
         };
@@ -43,7 +44,7 @@ var scenes;
             this.addChild(this._welcomeLabel);
             this.addChild(this._startButton);
             this._startButton.on("click", function () {
-                // start the play scene
+                managers.Game.currentState = config.Scene.PLAY;
             });
         };
         return Start;

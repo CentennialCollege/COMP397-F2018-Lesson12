@@ -32,6 +32,7 @@ var scenes;
             this._player.Update();
         };
         Play.prototype.Destroy = function () {
+            this.removeAllChildren();
         };
         Play.prototype.Reset = function () {
         };

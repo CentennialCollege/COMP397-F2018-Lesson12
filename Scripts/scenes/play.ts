@@ -27,7 +27,7 @@ module scenes {
         }
         
         public Destroy(): void {
-
+            this.removeAllChildren();
         }
         
         public Reset(): void {
@@ -43,7 +43,5 @@ module scenes {
         this._player = new objects.Player();
         this.addChild(this._player);
         }
-
-
     }
 }

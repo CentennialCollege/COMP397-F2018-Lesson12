@@ -32,7 +32,7 @@ module scenes {
         }
         
         public Destroy(): void {
-
+            this.removeAllChildren();
         }
         
         public Reset(): void {
@@ -48,9 +48,10 @@ module scenes {
 
         this.addChild(this._startButton);
 
-        this._startButton.on("click", function(){
-            // start the play scene
+        this._startButton.on("click", ()=>{
+            managers.Game.currentState = config.Scene.PLAY;
         });
+
     }
 
 

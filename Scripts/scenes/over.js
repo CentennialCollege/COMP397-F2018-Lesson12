@@ -34,6 +34,7 @@ var scenes;
             this._ocean.Update();
         };
         Over.prototype.Destroy = function () {
+            this.removeAllChildren();
         };
         Over.prototype.Reset = function () {
         };

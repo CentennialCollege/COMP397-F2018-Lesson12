@@ -4,7 +4,8 @@
     var canvas;
     var stage;
     var assetManager;
-    var play;
+    var currentScene;
+    var currentState;
     var assetManifest = [
         { id: "startButton", src: "/Assets/images/startButton.png" },
         { id: "restartButton", src: "/Assets/images/restartButton.png" },
@@ -31,17 +32,37 @@
         stage.enableMouseOver(20);
         createjs.Ticker.framerate = 60; // game will run at 60fps
         createjs.Ticker.on("tick", Update);
+        currentState = config.Scene.START;
+        managers.Game.currentState = currentState;
         Main();
     }
     // this is the main game loop
     function Update() {
-        play.Update();
+        currentScene.Update();
+        if (currentState != managers.Game.currentState) {
+            currentState = managers.Game.currentState;
+            Main();
+        }
         stage.update();
     }
     function Main() {
-        //add the Play scene to the Stage
-        play = new scenes.Play();
-        stage.addChild(play);
+        // clean up current scene
+        if (currentScene) {
+            currentScene.Destroy();
+            stage.removeAllChildren();
+        }
+        switch (currentState) {
+            case config.Scene.START:
+                currentScene = new scenes.Start();
+                break;
+            case config.Scene.PLAY:
+                currentScene = new scenes.Play();
+                break;
+            case config.Scene.OVER:
+                currentScene = new scenes.Over();
+                break;
+        }
+        stage.addChild(currentScene);
     }
     window.addEventListener("load", Init);
 })();

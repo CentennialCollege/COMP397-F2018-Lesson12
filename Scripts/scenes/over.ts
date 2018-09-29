@@ -32,7 +32,7 @@ module scenes {
         }
         
         public Destroy(): void {
-
+            this.removeAllChildren();
         }
         
         public Reset(): void {
