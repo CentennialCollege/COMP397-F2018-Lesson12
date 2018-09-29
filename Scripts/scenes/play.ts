@@ -3,6 +3,7 @@ module scenes {
         // private instance variable
          private _player:objects.Player;
          private _ocean:objects.Ocean;
+         private _island:objects.Island;
 
         // public properties
 
@@ -24,6 +25,7 @@ module scenes {
         public Update(): void {
             this._ocean.Update();
             this._player.Update();
+            this._island.Update();
         }
         
         public Destroy(): void {
@@ -35,11 +37,16 @@ module scenes {
         }
         
         public Main(): void {
-            // adds ocean to the stage
+        // adds ocean to the scene
         this._ocean = new objects.Ocean();
         this.addChild(this._ocean);
 
-        // adds player to the stage
+
+        // adds island to the scene
+        this._island = new objects.Island();
+        this.addChild(this._island);
+
+        // adds player to the scene
         this._player = new objects.Player();
         this.addChild(this._player);
         }

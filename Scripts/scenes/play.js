@@ -30,6 +30,7 @@ var scenes;
         Play.prototype.Update = function () {
             this._ocean.Update();
             this._player.Update();
+            this._island.Update();
         };
         Play.prototype.Destroy = function () {
             this.removeAllChildren();
@@ -37,10 +38,13 @@ var scenes;
         Play.prototype.Reset = function () {
         };
         Play.prototype.Main = function () {
-            // adds ocean to the stage
+            // adds ocean to the scene
             this._ocean = new objects.Ocean();
             this.addChild(this._ocean);
-            // adds player to the stage
+            // adds island to the scene
+            this._island = new objects.Island();
+            this.addChild(this._island);
+            // adds player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
         };
