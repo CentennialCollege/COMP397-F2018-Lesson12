@@ -5,6 +5,9 @@ module scenes {
          private _ocean:objects.Ocean;
          private _island:objects.Island;
 
+         private _cloudNum: number;
+         private _clouds:objects.Cloud[];
+
         // public properties
 
         // constructor
@@ -19,6 +22,16 @@ module scenes {
         // public methods
 
         public Start(): void {
+            this._cloudNum = 3;
+
+            // Instantiates a new Array container of Type objects.Cloud
+            this._clouds = new Array<objects.Cloud>();
+
+            // Fill the Cloud Array with Clouds
+            for (let count = 0; count < this._cloudNum; count++) {
+                this._clouds[count] = new objects.Cloud(); 
+            }
+
             this.Main();
         }        
         
@@ -26,6 +39,12 @@ module scenes {
             this._ocean.Update();
             this._player.Update();
             this._island.Update();
+
+            // Update Each cloud in the Cloud Array
+            for (const cloud of this._clouds) {
+                cloud.Update();
+            }
+
         }
         
         public Destroy(): void {
@@ -41,7 +60,6 @@ module scenes {
         this._ocean = new objects.Ocean();
         this.addChild(this._ocean);
 
-
         // adds island to the scene
         this._island = new objects.Island();
         this.addChild(this._island);
@@ -49,6 +67,10 @@ module scenes {
         // adds player to the scene
         this._player = new objects.Player();
         this.addChild(this._player);
+
+        // adds Each Cloud in the Cloud Array to the Scene
+        for (const cloud of this._clouds) {
+            this.addChild(cloud);
         }
     }
 }
