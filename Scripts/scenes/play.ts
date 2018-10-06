@@ -44,10 +44,10 @@ namespace scenes {
       managers.Collision.Check(this._player, this._island);
 
       // Update Each cloud in the Cloud Array
-      for (const cloud of this._clouds) {
+      this._clouds.forEach(cloud => {
         cloud.Update();
         managers.Collision.Check(this._player, cloud);
-      }
+      });
     }
 
     public Destroy(): void {
@@ -70,9 +70,9 @@ namespace scenes {
       this.addChild(this._player);
 
       // adds Each Cloud in the Cloud Array to the Scene
-      for (const cloud of this._clouds) {
+      this._clouds.forEach(cloud => {
         this.addChild(cloud);
-      }
+      });
     }
   }
 }
