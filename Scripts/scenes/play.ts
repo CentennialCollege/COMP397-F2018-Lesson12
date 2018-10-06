@@ -40,9 +40,13 @@ namespace scenes {
       this._player.Update();
       this._island.Update();
 
+      // check if player and island are colliding
+      managers.Collision.Check(this._player, this._island);
+
       // Update Each cloud in the Cloud Array
       for (const cloud of this._clouds) {
         cloud.Update();
+        managers.Collision.Check(this._player, cloud);
       }
     }
 
