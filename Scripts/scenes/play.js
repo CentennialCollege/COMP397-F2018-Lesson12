@@ -47,8 +47,7 @@ var scenes;
         Play.prototype.Destroy = function () {
             this.removeAllChildren();
         };
-        Play.prototype.Reset = function () {
-        };
+        Play.prototype.Reset = function () { };
         Play.prototype.Main = function () {
             // adds ocean to the scene
             this._ocean = new objects.Ocean();
