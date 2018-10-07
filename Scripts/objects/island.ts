@@ -34,6 +34,8 @@ module objects {
         }        
         
         public Start(): void {
+            this.regX = this.HalfWidth;
+            this.regY = this.HalfHeight;
             this.Reset();
         }
 

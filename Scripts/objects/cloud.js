@@ -42,6 +42,8 @@ var objects;
             this.IsColliding = false;
         };
         Cloud.prototype.Start = function () {
+            this.regX = this.HalfWidth;
+            this.regY = this.HalfHeight;
             this.Reset();
         };
         Cloud.prototype.Update = function () {

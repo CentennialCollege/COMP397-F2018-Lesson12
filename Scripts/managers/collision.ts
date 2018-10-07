@@ -12,8 +12,10 @@ module managers {
         public static Check(object1: objects.GameObject, object2: objects.GameObject): void {
 
             if (!object2.IsColliding) {
+                let distance = util.Vector2.Distance(object1.Position, object2.Position);
+                let totalHeight = object1.HalfHeight + object2.HalfHeight;
                 // check if object 1 is colliding with object 2
-                if (util.Vector2.Distance(object1.Position, object2.Position) < (object1.HalfHeight + object2.HalfHeight)) {
+                if (distance < totalHeight) {
                     object2.IsColliding = true;
 
                     switch(object2.name) {

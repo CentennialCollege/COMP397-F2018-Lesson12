@@ -40,6 +40,8 @@ var objects;
             this.IsColliding = false;
         };
         Island.prototype.Start = function () {
+            this.regX = this.HalfWidth;
+            this.regY = this.HalfHeight;
             this.Reset();
         };
         Island.prototype.Update = function () {
