@@ -9,10 +9,6 @@ module managers {
         private _livesLabel:objects.Label;
         private _highScoreLabel:objects.Label;
 
-        private _isGameOver:boolean;
-
-        private _currentScene:objects.Scene;
-
         // public properties
         get Score():number {
             return this._score;
@@ -47,20 +43,14 @@ module managers {
          * Creates an instance of ScoreBoard.
          * @param {boolean} [isGameOver=false]
          */
-        constructor(livesNum:number = 5, scoreNum:number = 0, highScoreNum:number = 0, isGameOver:boolean = false) {
-
-            this._isGameOver = isGameOver;
-            this._currentScene = managers.Game.currentScene;
+        constructor(livesNum:number = 5, scoreNum:number = 0, highScoreNum:number = 0) {
 
             this.Start();
 
-            if(!isGameOver) {
-                this.Lives = livesNum;
-                this.Score = scoreNum;
-            }
-            else {
-                this.HighScore = highScoreNum;
-            }
+            this.Lives = livesNum;
+            this.Score = scoreNum;
+            this.HighScore = highScoreNum;
+
         }
 
         // private methods
@@ -69,27 +59,24 @@ module managers {
 
         // Initialize Objects
         public Start():void {
-            if(!this._isGameOver) {
-                this._scoreLabel = new objects.Label("Score: 99999", "30px", "Consolas", "#FFFF00", 350, 10, false);
-                this._livesLabel = new objects.Label("Lives: 99", "30px", "Consolas", "#FFFF00", 20, 10, false);
-            }
-            else {
-                this._highScoreLabel = new objects.Label("High Score: 999999", "60px", "Consolas", "#FFFF00", 320, 140, true);
-            } 
-
-            this.Main();
+            this._scoreLabel = new objects.Label("Score: 99999", "30px", "Consolas", "#FFFF00", 350, 10, false);
+            this._livesLabel = new objects.Label("Lives: 99", "30px", "Consolas", "#FFFF00", 20, 10, false);
+            this._highScoreLabel = new objects.Label("High Score: 999999", "60px", "Consolas", "#FFFF00", 320, 140, true);
         }
 
-
-        // Add objects to the current scene
-        public Main():void {
-            if(!this._isGameOver) {
-                this._currentScene.addChild(this._scoreLabel);
-                this._currentScene.addChild(this._livesLabel);
-            }
-            else {
-                this._currentScene.addChild(this._highScoreLabel);
-            }
+        public AddGameUI(currentScene:objects.Scene):void {
+            currentScene.addChild(this._livesLabel);
+            currentScene.addChild(this._scoreLabel);
         }
+
+        public AddHighScore(currentScene:objects.Scene):void {
+            currentScene.addChild(this._highScoreLabel);
+        }
+
+        public Reset(livesNum:number = 5, scoreNum:number = 0): void {
+            this.Lives = livesNum;
+            this.Score = scoreNum;
+        }
+
     }
 }

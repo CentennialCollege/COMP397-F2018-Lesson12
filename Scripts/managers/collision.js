@@ -27,8 +27,8 @@ var managers;
                             managers.Game.scoreBoard.Lives -= 1;
                             if (managers.Game.scoreBoard.Lives <= 0) {
                                 managers.Game.currentState = config.Scene.OVER;
-                                if (managers.Game.highScore <= managers.Game.scoreBoard.Score) {
-                                    managers.Game.highScore = managers.Game.scoreBoard.Score;
+                                if (managers.Game.scoreBoard.HighScore <= managers.Game.scoreBoard.Score) {
+                                    managers.Game.scoreBoard.HighScore = managers.Game.scoreBoard.Score;
                                 }
                             }
                             break;

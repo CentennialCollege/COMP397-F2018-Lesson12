@@ -25,8 +25,6 @@ var scenes;
         // private methods
         // public methods
         Play.prototype.Start = function () {
-            // TODO: optimization - remove this hack
-            managers.Game.currentScene = this;
             this._cloudNum = 3;
             // Instantiates a new Array container of Type objects.Cloud
             this._clouds = new Array();
@@ -74,8 +72,7 @@ var scenes;
                 _this.addChild(cloud);
             });
             // add ScoreBoard UI to the Scene
-            this._scoreBoard = new managers.ScoreBoard();
-            managers.Game.scoreBoard = this._scoreBoard;
+            managers.Game.scoreBoard.AddGameUI(this);
         };
         return Play;
     }(objects.Scene));

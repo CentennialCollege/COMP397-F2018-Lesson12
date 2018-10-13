@@ -25,7 +25,6 @@ var scenes;
         // private methods
         // public methods
         Over.prototype.Start = function () {
-            managers.Game.currentScene = this;
             this._ocean = new objects.Ocean();
             this._gameOverLabel = new objects.Label("Game Over", "60px", "Consolas", "#FFFF00", 320, 240, true);
             this._restartButton = new objects.Button("restartButton", 320, 360, true);
@@ -45,9 +44,9 @@ var scenes;
             this.addChild(this._restartButton);
             this._restartButton.on("click", function () {
                 managers.Game.currentState = config.Scene.PLAY;
+                managers.Game.scoreBoard.Reset();
             });
-            this._scoreBoard = new managers.ScoreBoard(0, 0, managers.Game.highScore, true);
-            managers.Game.scoreBoard = this._scoreBoard;
+            managers.Game.scoreBoard.AddHighScore(this);
         };
         return Over;
     }(objects.Scene));

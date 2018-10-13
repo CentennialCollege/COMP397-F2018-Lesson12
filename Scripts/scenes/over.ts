@@ -5,8 +5,6 @@ namespace scenes {
     private _ocean: objects.Ocean;
     private _restartButton: objects.Button;
 
-    private _scoreBoard: managers.ScoreBoard;
-
     // public properties
 
     // constructor
@@ -21,7 +19,6 @@ namespace scenes {
     // public methods
 
     public Start(): void {
-      managers.Game.currentScene = this;
 
       this._ocean = new objects.Ocean();
       this._gameOverLabel = new objects.Label(
@@ -59,10 +56,10 @@ namespace scenes {
 
       this._restartButton.on("click", function() {
         managers.Game.currentState = config.Scene.PLAY;
+        managers.Game.scoreBoard.Reset();
       });
 
-      this._scoreBoard = new managers.ScoreBoard(0,0,managers.Game.highScore,true);
-      managers.Game.scoreBoard = this._scoreBoard;
+      managers.Game.scoreBoard.AddHighScore(this);
     }
   }
 }
