@@ -65,6 +65,7 @@ namespace scenes {
 
     public Destroy(): void {
       this.removeAllChildren();
+      this._engineSound.stop();
     }
 
     public Reset(): void {}
@@ -89,7 +90,7 @@ namespace scenes {
 
       // add ScoreBoard UI to the Scene
       this._scoreBoard = new managers.ScoreBoard();
-
+      managers.Game.scoreBoard = this._scoreBoard;
     }
   }
 }

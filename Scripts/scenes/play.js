@@ -55,6 +55,7 @@ var scenes;
         };
         Play.prototype.Destroy = function () {
             this.removeAllChildren();
+            this._engineSound.stop();
         };
         Play.prototype.Reset = function () { };
         Play.prototype.Main = function () {
@@ -74,6 +75,7 @@ var scenes;
             });
             // add ScoreBoard UI to the Scene
             this._scoreBoard = new managers.ScoreBoard();
+            managers.Game.scoreBoard = this._scoreBoard;
         };
         return Play;
     }(objects.Scene));

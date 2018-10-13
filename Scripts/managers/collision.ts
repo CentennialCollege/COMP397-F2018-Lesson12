@@ -22,10 +22,16 @@ module managers {
                         case "island":
                             let yaySound = createjs.Sound.play("yaySound");
                             yaySound.volume = 0.1;
+                            managers.Game.scoreBoard.Score += 100;
                         break;
                         case "cloud":
                             let thunderSound = createjs.Sound.play("thunderSound");
                             thunderSound.volume = 0.1;
+                            managers.Game.scoreBoard.Lives -= 1;
+
+                            if(managers.Game.scoreBoard.Lives <= 0) {
+                                managers.Game.currentState = config.Scene.OVER;
+                            }
                         break;
                     }
                 }
