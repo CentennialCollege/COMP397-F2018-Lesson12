@@ -8,6 +8,8 @@ namespace scenes {
     private _cloudNum: number;
     private _clouds: objects.Cloud[];
 
+    private _engineSound: createjs.AbstractSoundInstance;
+
     // public properties
 
     // constructor
@@ -31,6 +33,11 @@ namespace scenes {
       for (let count = 0; count < this._cloudNum; count++) {
         this._clouds[count] = new objects.Cloud();
       }
+
+      // play background engine sound when the level starts
+      this._engineSound = createjs.Sound.play("engineSound");
+      this._engineSound.volume = 0.1;
+      this._engineSound.loop = -1; // loop forever
 
       this.Main();
     }

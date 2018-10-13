@@ -17,10 +17,12 @@ var managers;
                     object2.IsColliding = true;
                     switch (object2.name) {
                         case "island":
-                            createjs.Sound.play("yaySound");
+                            var yaySound = createjs.Sound.play("yaySound");
+                            yaySound.volume = 0.1;
                             break;
                         case "cloud":
-                            createjs.Sound.play("thunderSound");
+                            var thunderSound = createjs.Sound.play("thunderSound");
+                            thunderSound.volume = 0.1;
                             break;
                     }
                 }
