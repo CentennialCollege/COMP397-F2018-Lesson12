@@ -10,6 +10,8 @@ namespace scenes {
 
     private _engineSound: createjs.AbstractSoundInstance;
 
+    private _scoreBoard: managers.ScoreBoard;
+
     // public properties
 
     // constructor
@@ -24,6 +26,10 @@ namespace scenes {
     // public methods
 
     public Start(): void {
+
+      // TODO: optimization - remove this hack
+      managers.Game.currentScene = this;
+
       this._cloudNum = 3;
 
       // Instantiates a new Array container of Type objects.Cloud
@@ -80,6 +86,10 @@ namespace scenes {
       this._clouds.forEach(cloud => {
         this.addChild(cloud);
       });
+
+      // add ScoreBoard UI to the Scene
+      this._scoreBoard = new managers.ScoreBoard();
+
     }
   }
 }
