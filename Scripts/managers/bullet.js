@@ -2,7 +2,9 @@ var managers;
 (function (managers) {
     var Bullet = /** @class */ (function () {
         // constructor
-        function Bullet() {
+        function Bullet(bulletNum) {
+            if (bulletNum === void 0) { bulletNum = 100; }
+            this.BulletNum = bulletNum;
             this.Start();
         }
         Object.defineProperty(Bullet.prototype, "Bullets", {
@@ -56,6 +58,8 @@ var managers;
         };
         Bullet.prototype.FireBullet = function (spawnPoint, direction) {
             this.CurrentBullet.Position = spawnPoint;
+            this.CurrentBullet.x = spawnPoint.x;
+            this.CurrentBullet.y = spawnPoint.y;
             this.CurrentBullet.Direction = direction;
             this.CurrentBullet.IsInPlay = true;
             this._currentBulletIndex++;

@@ -36,6 +36,9 @@ var scenes;
             this._engineSound = createjs.Sound.play("engineSound");
             this._engineSound.volume = 0.1;
             this._engineSound.loop = -1; // loop forever
+            // instantiates a new bullet manager
+            this._bulletManager = new managers.Bullet();
+            managers.Game.bulletManager = this._bulletManager;
             this.Main();
         };
         Play.prototype.Update = function () {
@@ -52,10 +55,12 @@ var scenes;
             });
             this._enemy.Update();
             managers.Collision.Check(this._player, this._enemy);
+            this._bulletManager.Update();
         };
         Play.prototype.Destroy = function () {
             this.removeAllChildren();
             this._engineSound.stop();
+            // TODO: Clean up bullet manager
         };
         Play.prototype.Reset = function () { };
         Play.prototype.Main = function () {
@@ -71,6 +76,10 @@ var scenes;
             // adds player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
+            // adds bullets to the scene
+            this._bulletManager.Bullets.forEach(function (bullet) {
+                _this.addChild(bullet);
+            });
             // adds Each Cloud in the Cloud Array to the Scene
             this._clouds.forEach(function (cloud) {
                 _this.addChild(cloud);

@@ -32,7 +32,10 @@ module managers {
         }
 
         // constructor
-        constructor() {
+        constructor(bulletNum:number = 100) {
+
+            this.BulletNum = bulletNum;
+
             this.Start();
         }
 
@@ -64,6 +67,8 @@ module managers {
 
         public FireBullet(spawnPoint:util.Vector2, direction:util.Vector2):void {
             this.CurrentBullet.Position = spawnPoint;
+            this.CurrentBullet.x = spawnPoint.x;
+            this.CurrentBullet.y = spawnPoint.y;
             this.CurrentBullet.Direction = direction;
             this.CurrentBullet.IsInPlay = true;
             

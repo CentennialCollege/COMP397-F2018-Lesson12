@@ -24,8 +24,7 @@ module objects {
             if(!this._isInPlay) {
                 this.Reset();
             }
-
-
+            this._velocity =  util.Vector2.Mulitply(this.Direction, this._speed);
         }
 
         // Constructors
@@ -36,26 +35,28 @@ module objects {
         }
 
         // private methods
-        private _move():void {
-            let newPosition = util.Vector2.Mulitply(this.Direction, this._speed);
-            this.Position = util.Vector2.Add(this.Position, newPosition);
+        private _move():void {  
+            this._updatePosition();
+            this.Position = util.Vector2.Add(this.Position, this._velocity);
+            this.x = this.Position.x;
+            this.y = this.Position.y;
         }
 
         private _checkBounds(): any {
-            if((this.Position.y > 480) || (this.Position.y < 0)) {
+            if((this.y > 480) || (this.y < 0)) {
                 this.IsInPlay = false;
             }
         }
         
         // public methods
         public Reset(): void {
-           this.x = -10000;
-           this.y = -10000;
+            this.x = -10000;
+            this.y = -10000;
            this.Direction = util.Vector2.zero();
         } 
 
         public Start(): void {
-            this._speed = 10;
+            this._speed = 15;
             this.IsInPlay = false;
         }
 

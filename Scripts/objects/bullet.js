@@ -41,17 +41,20 @@ var objects;
                 if (!this._isInPlay) {
                     this.Reset();
                 }
+                this._velocity = util.Vector2.Mulitply(this.Direction, this._speed);
             },
             enumerable: true,
             configurable: true
         });
         // private methods
         Bullet.prototype._move = function () {
-            var newPosition = util.Vector2.Mulitply(this.Direction, this._speed);
-            this.Position = util.Vector2.Add(this.Position, newPosition);
+            this._updatePosition();
+            this.Position = util.Vector2.Add(this.Position, this._velocity);
+            this.x = this.Position.x;
+            this.y = this.Position.y;
         };
         Bullet.prototype._checkBounds = function () {
-            if ((this.Position.y > 480) || (this.Position.y < 0)) {
+            if ((this.y > 480) || (this.y < 0)) {
                 this.IsInPlay = false;
             }
         };
@@ -62,7 +65,7 @@ var objects;
             this.Direction = util.Vector2.zero();
         };
         Bullet.prototype.Start = function () {
-            this._speed = 10;
+            this._speed = 15;
             this.IsInPlay = false;
         };
         Bullet.prototype.Update = function () {

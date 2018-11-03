@@ -12,6 +12,8 @@ namespace scenes {
 
     private _engineSound: createjs.AbstractSoundInstance;
 
+    private _bulletManager: managers.Bullet;
+
     // public properties
 
     // constructor
@@ -42,6 +44,10 @@ namespace scenes {
       this._engineSound.volume = 0.1;
       this._engineSound.loop = -1; // loop forever
 
+      // instantiates a new bullet manager
+      this._bulletManager = new managers.Bullet();
+      managers.Game.bulletManager = this._bulletManager;
+
       this.Main();
     }
 
@@ -62,12 +68,13 @@ namespace scenes {
       this._enemy.Update();
       managers.Collision.Check(this._player, this._enemy);
 
-
+      this._bulletManager.Update();
     }
 
     public Destroy(): void {
       this.removeAllChildren();
       this._engineSound.stop();
+      // TODO: Clean up bullet manager
     }
 
     public Reset(): void {}
@@ -89,7 +96,10 @@ namespace scenes {
       this._player = new objects.Player();
       this.addChild(this._player);
 
-     
+      // adds bullets to the scene
+      this._bulletManager.Bullets.forEach(bullet => {
+        this.addChild(bullet);
+      });
 
       // adds Each Cloud in the Cloud Array to the Scene
       this._clouds.forEach(cloud => {
