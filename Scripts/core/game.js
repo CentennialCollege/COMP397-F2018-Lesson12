@@ -16,7 +16,9 @@
         { id: "ocean", src: "./Assets/images/ocean.gif" },
         { id: "engineSound", src: "./Assets/audio/engine.ogg" },
         { id: "thunderSound", src: "./Assets/audio/thunder.ogg" },
-        { id: "yaySound", src: "./Assets/audio/yay.ogg" }
+        { id: "yaySound", src: "./Assets/audio/yay.ogg" },
+        { id: "bullet", src: "./Assets/images/bullet.png" },
+        { id: "enemy", src: "./Assets/images/enemy1.png" }
     ];
     function Init() {
         assetManager = new createjs.LoadQueue();
