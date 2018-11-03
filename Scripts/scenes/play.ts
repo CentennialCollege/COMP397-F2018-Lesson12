@@ -36,6 +36,7 @@ namespace scenes {
         this._clouds[count] = new objects.Cloud();
       }
 
+
       // play background engine sound when the level starts
       this._engineSound = createjs.Sound.play("engineSound");
       this._engineSound.volume = 0.1;
@@ -60,6 +61,8 @@ namespace scenes {
 
       this._enemy.Update();
       managers.Collision.Check(this._player, this._enemy);
+
+
     }
 
     public Destroy(): void {
@@ -85,6 +88,8 @@ namespace scenes {
       // adds player to the scene
       this._player = new objects.Player();
       this.addChild(this._player);
+
+     
 
       // adds Each Cloud in the Cloud Array to the Scene
       this._clouds.forEach(cloud => {

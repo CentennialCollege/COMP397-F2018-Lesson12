@@ -4,6 +4,7 @@ module objects {
         private _speed:number;
         private _direction:util.Vector2;
         private _isInPlay:boolean;
+        private _velocity:util.Vector2;
 
         // public properties
         get Direction():util.Vector2 {
@@ -23,6 +24,8 @@ module objects {
             if(!this._isInPlay) {
                 this.Reset();
             }
+
+
         }
 
         // Constructors
