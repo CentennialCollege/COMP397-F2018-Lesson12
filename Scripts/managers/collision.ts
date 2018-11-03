@@ -37,6 +37,14 @@ module managers {
 
 
                         break;
+
+                        case "bullet":
+                            explosionSound = createjs.Sound.play("explosionSound");
+                            explosionSound.volume = 0.1;
+                            managers.Game.scoreBoard.Lives -=1;
+
+
+                        break;
                     }
 
                     if(managers.Game.scoreBoard.Lives <= 0) {

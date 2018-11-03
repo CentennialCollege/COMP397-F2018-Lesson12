@@ -69,6 +69,9 @@ namespace scenes {
       managers.Collision.Check(this._player, this._enemy);
 
       this._bulletManager.Update();
+      this._bulletManager.Bullets.forEach(bullet => {
+        managers.Collision.Check(this._player, bullet);
+      });
     }
 
     public Destroy(): void {

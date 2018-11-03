@@ -56,6 +56,9 @@ var scenes;
             this._enemy.Update();
             managers.Collision.Check(this._player, this._enemy);
             this._bulletManager.Update();
+            this._bulletManager.Bullets.forEach(function (bullet) {
+                managers.Collision.Check(_this._player, bullet);
+            });
         };
         Play.prototype.Destroy = function () {
             this.removeAllChildren();
