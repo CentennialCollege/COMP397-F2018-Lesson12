@@ -8,6 +8,8 @@ namespace scenes {
     private _cloudNum: number;
     private _clouds: objects.Cloud[];
 
+    private _enemy: objects.Enemy;
+
     private _engineSound: createjs.AbstractSoundInstance;
 
     // public properties
@@ -55,6 +57,9 @@ namespace scenes {
         cloud.Update();
         managers.Collision.Check(this._player, cloud);
       });
+
+      this._enemy.Update();
+      managers.Collision.Check(this._player, this._enemy);
     }
 
     public Destroy(): void {
@@ -72,6 +77,10 @@ namespace scenes {
       // adds island to the scene
       this._island = new objects.Island();
       this.addChild(this._island);
+
+
+      this._enemy = new objects.Enemy();
+      this.addChild(this._enemy);
 
       // adds player to the scene
       this._player = new objects.Player();

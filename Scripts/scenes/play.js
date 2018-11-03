@@ -50,6 +50,8 @@ var scenes;
                 cloud.Update();
                 managers.Collision.Check(_this._player, cloud);
             });
+            this._enemy.Update();
+            managers.Collision.Check(this._player, this._enemy);
         };
         Play.prototype.Destroy = function () {
             this.removeAllChildren();
@@ -64,6 +66,8 @@ var scenes;
             // adds island to the scene
             this._island = new objects.Island();
             this.addChild(this._island);
+            this._enemy = new objects.Enemy();
+            this.addChild(this._enemy);
             // adds player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);

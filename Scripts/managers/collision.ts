@@ -29,13 +29,21 @@ module managers {
                             thunderSound.volume = 0.1;
                             managers.Game.scoreBoard.Lives -= 1;
 
-                            if(managers.Game.scoreBoard.Lives <= 0) {
-                                managers.Game.currentState = config.Scene.OVER;
-                                if(managers.Game.scoreBoard.HighScore <= managers.Game.scoreBoard.Score) {
-                                    managers.Game.scoreBoard.HighScore = managers.Game.scoreBoard.Score;
-                                }
-                            }
                         break;
+                        case "enemy":
+                            let explosionSound = createjs.Sound.play("explosionSound");
+                            explosionSound.volume = 0.1;
+                            managers.Game.scoreBoard.Lives -=1;
+
+
+                        break;
+                    }
+
+                    if(managers.Game.scoreBoard.Lives <= 0) {
+                        managers.Game.currentState = config.Scene.OVER;
+                        if(managers.Game.scoreBoard.HighScore <= managers.Game.scoreBoard.Score) {
+                            managers.Game.scoreBoard.HighScore = managers.Game.scoreBoard.Score;
+                        }
                     }
                 }
             }

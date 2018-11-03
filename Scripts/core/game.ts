@@ -21,7 +21,9 @@
         {id: "thunderSound", src:"./Assets/audio/thunder.ogg"},
         {id: "yaySound", src:"./Assets/audio/yay.ogg"},
         {id: "bullet", src:"./Assets/images/bullet.png"},
-        {id: "enemy", src:"./Assets/images/enemy1.png"}
+        {id: "enemy", src:"./Assets/images/enemy1.png"},
+        {id: "bulletSound", src:"./Assets/audio/bullet.mp3"},
+        {id: "explosionSound", src:"./Assets/audio/explosion.mp3"}
     ];
 
 
