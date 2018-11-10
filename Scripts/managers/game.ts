@@ -6,5 +6,6 @@ module managers {
         public static currentState:config.Scene;
         public static scoreBoard:managers.ScoreBoard;
         public static bulletManager:managers.Bullet;
+        public static player:objects.Player;
     }
 }

@@ -30,6 +30,15 @@ namespace scenes {
     public Start(): void {
       this._cloudNum = 3;
 
+      this._ocean = new objects.Ocean();
+
+      this._island = new objects.Island();
+
+      this._enemy = new objects.Enemy();
+
+      this._player = new objects.Player();
+      managers.Game.player = this._player;
+
       // Instantiates a new Array container of Type objects.Cloud
       this._clouds = new Array<objects.Cloud>();
 
@@ -37,7 +46,6 @@ namespace scenes {
       for (let count = 0; count < this._cloudNum; count++) {
         this._clouds[count] = new objects.Cloud();
       }
-
 
       // play background engine sound when the level starts
       this._engineSound = createjs.Sound.play("engineSound");
@@ -48,7 +56,13 @@ namespace scenes {
       this._bulletManager = new managers.Bullet();
       managers.Game.bulletManager = this._bulletManager;
 
+      this.SetupInput();
+
       this.Main();
+    }
+
+    public SetupInput(): void {
+      this.on("mousedown", managers.Input.OnLeftMouseDown);
     }
 
     public Update(): void {
@@ -77,26 +91,21 @@ namespace scenes {
     public Destroy(): void {
       this.removeAllChildren();
       this._engineSound.stop();
-      // TODO: Clean up bullet manager
+      this.off("mousedown", managers.Input.OnLeftMouseDown);
     }
 
     public Reset(): void {}
 
     public Main(): void {
       // adds ocean to the scene
-      this._ocean = new objects.Ocean();
       this.addChild(this._ocean);
 
       // adds island to the scene
-      this._island = new objects.Island();
       this.addChild(this._island);
 
-
-      this._enemy = new objects.Enemy();
       this.addChild(this._enemy);
 
       // adds player to the scene
-      this._player = new objects.Player();
       this.addChild(this._player);
 
       // adds bullets to the scene

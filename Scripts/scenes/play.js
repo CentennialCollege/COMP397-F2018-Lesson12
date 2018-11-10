@@ -26,6 +26,11 @@ var scenes;
         // public methods
         Play.prototype.Start = function () {
             this._cloudNum = 3;
+            this._ocean = new objects.Ocean();
+            this._island = new objects.Island();
+            this._enemy = new objects.Enemy();
+            this._player = new objects.Player();
+            managers.Game.player = this._player;
             // Instantiates a new Array container of Type objects.Cloud
             this._clouds = new Array();
             // Fill the Cloud Array with Clouds
@@ -39,7 +44,11 @@ var scenes;
             // instantiates a new bullet manager
             this._bulletManager = new managers.Bullet();
             managers.Game.bulletManager = this._bulletManager;
+            this.SetupInput();
             this.Main();
+        };
+        Play.prototype.SetupInput = function () {
+            this.on("mousedown", managers.Input.OnLeftMouseDown);
         };
         Play.prototype.Update = function () {
             var _this = this;
@@ -63,21 +72,17 @@ var scenes;
         Play.prototype.Destroy = function () {
             this.removeAllChildren();
             this._engineSound.stop();
-            // TODO: Clean up bullet manager
+            this.off("mousedown", managers.Input.OnLeftMouseDown);
         };
         Play.prototype.Reset = function () { };
         Play.prototype.Main = function () {
             var _this = this;
             // adds ocean to the scene
-            this._ocean = new objects.Ocean();
             this.addChild(this._ocean);
             // adds island to the scene
-            this._island = new objects.Island();
             this.addChild(this._island);
-            this._enemy = new objects.Enemy();
             this.addChild(this._enemy);
             // adds player to the scene
-            this._player = new objects.Player();
             this.addChild(this._player);
             // adds bullets to the scene
             this._bulletManager.Bullets.forEach(function (bullet) {
