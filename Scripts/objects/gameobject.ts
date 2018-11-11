@@ -59,10 +59,12 @@ module objects {
              this._isColliding = newValue;
          }
  
+         
+
          // constructors
          constructor(imageString:string) {
              super(managers.Game.assetManager.getResult(imageString));
- 
+
              this.name = imageString;
              this._initialize();
          }

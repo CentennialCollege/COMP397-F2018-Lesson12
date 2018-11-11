@@ -27,14 +27,25 @@ var managers;
                             managers.Game.scoreBoard.Lives -= 1;
                             break;
                         case "enemy":
+                            if (object1.name == "bullet") {
+                                var explosionSound_1 = createjs.Sound.play("explosionSound");
+                                explosionSound_1.volume = 0.1;
+                                managers.Game.scoreBoard.Score += 100;
+                                object2.Reset();
+                                object1.Reset();
+                                console.log("enemy hit by bullet");
+                            }
+                            else {
+                                var explosionSound_2 = createjs.Sound.play("explosionSound");
+                                explosionSound_2.volume = 0.1;
+                                managers.Game.scoreBoard.Lives -= 1;
+                            }
+                            break;
+                        case "bullet":
                             var explosionSound = createjs.Sound.play("explosionSound");
                             explosionSound.volume = 0.1;
                             managers.Game.scoreBoard.Lives -= 1;
-                            break;
-                        case "bullet":
-                            explosionSound = createjs.Sound.play("explosionSound");
-                            explosionSound.volume = 0.1;
-                            managers.Game.scoreBoard.Lives -= 1;
+                            object2.Reset();
                             break;
                     }
                     if (managers.Game.scoreBoard.Lives <= 0) {

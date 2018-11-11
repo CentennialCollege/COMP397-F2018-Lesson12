@@ -67,6 +67,7 @@ var scenes;
             this._bulletManager.Update();
             this._bulletManager.Bullets.forEach(function (bullet) {
                 managers.Collision.Check(_this._player, bullet);
+                managers.Collision.Check(bullet, _this._enemy);
             });
         };
         Play.prototype.Destroy = function () {

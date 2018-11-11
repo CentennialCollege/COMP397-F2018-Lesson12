@@ -31,19 +31,30 @@ module managers {
 
                         break;
                         case "enemy":
-                            let explosionSound = createjs.Sound.play("explosionSound");
-                            explosionSound.volume = 0.1;
-                            managers.Game.scoreBoard.Lives -=1;
+                            if(object1.name == "bullet") {
+                                    let explosionSound = createjs.Sound.play("explosionSound");
+                                    explosionSound.volume = 0.1;
+                                    managers.Game.scoreBoard.Score += 100;
+                                    object2.Reset();
+                                    object1.Reset();
+                                    console.log("enemy hit by bullet");
+                            }
+                            else
+                            {
+                                let explosionSound = createjs.Sound.play("explosionSound");
+                                explosionSound.volume = 0.1;
+                                managers.Game.scoreBoard.Lives -=1;
+                            }
+                            
 
 
                         break;
 
                         case "bullet":
-                            explosionSound = createjs.Sound.play("explosionSound");
+                            let explosionSound = createjs.Sound.play("explosionSound");
                             explosionSound.volume = 0.1;
                             managers.Game.scoreBoard.Lives -=1;
-
-
+                            object2.Reset();
                         break;
                     }
 

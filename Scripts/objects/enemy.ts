@@ -24,10 +24,12 @@ module objects {
                 this.Reset();
             }
 
+            
             if((createjs.Ticker.getTicks() % 20 == 0) && (this.y > 0)) {
                 managers.Game.bulletManager.FireBullet(
                     util.Vector2.Add(this.Position, this._bulletSpawn), util.Vector2.down());
             }
+            
         }
 
         // public methods

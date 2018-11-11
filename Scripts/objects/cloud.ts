@@ -37,6 +37,8 @@ module objects {
         }        
         
         public Start(): void {
+            this.alpha = 0.7;
+
             this.regX = this.HalfWidth;
             this.regY = this.HalfHeight;
             this.Reset();
