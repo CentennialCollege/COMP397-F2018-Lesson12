@@ -9,6 +9,12 @@ var managers;
             }
         };
         Input.LeftButtonDown = false;
+        Input.jump = false;
+        Input.moveBackward = false;
+        Input.moveForward = false;
+        Input.moveLeft = false;
+        Input.moveRight = false;
+        Input.enabled = true;
         return Input;
     }());
     managers.Input = Input;
