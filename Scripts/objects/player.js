@@ -38,9 +38,10 @@ var objects;
             this.regX = this.HalfWidth;
             this.regY = this.HalfHeight;
             this.y = 435;
+            this.x = 320;
         };
         Player.prototype.Update = function () {
-            this.x = managers.Game.stage.mouseX;
+            this.Move();
             this._updatePosition();
             this.BulletSpawn = new util.Vector2(this.x - 6, this.y - this.HalfHeight - 2);
             // checks the right boundary
@@ -51,6 +52,50 @@ var objects;
             if (this.x < this.HalfWidth) {
                 this.x = this.HalfWidth;
             }
+        };
+        Player.prototype.Move = function () {
+            // this.x = managers.Game.stage.mouseX;
+            var direction = (this.rotation - 90) * -1;
+            var degToRad = Math.PI / 180.0;
+            // standard movement for top scroller - left and right
+            if (managers.Input.moveRight) {
+                this.x += 5;
+            }
+            if (managers.Input.moveLeft) {
+                this.x -= 5;
+            }
+            /*
+
+            // standard movement - forward - back
+
+            if(managers.Input.moveForward) {
+                this.y -= 5;
+            }
+
+            if(managers.Input.moveBackward) {
+                this.y += 5;
+            }
+            */
+            /* move in direction that player is facing */
+            /*
+            if(managers.Input.moveForward) {
+                this.x += 5 * Math.cos(direction * (degToRad));
+                this.y -= 5 * Math.sin(direction * degToRad);
+            }
+
+            if(managers.Input.moveBackward) {
+                this.x -= 5 * Math.cos(direction * (degToRad));
+                this.y += 5 * Math.sin(direction * degToRad);
+            }
+
+            if(managers.Input.moveLeft) {
+                this.rotation -= 5;
+            }
+
+            if(managers.Input.moveRight) {
+                this.rotation += 5;
+            }
+            */
         };
         Player.prototype.Reset = function () {
         };

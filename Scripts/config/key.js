@@ -16,6 +16,7 @@ var config;
         Key.SPACEBAR = 32;
         Key.UP_ARROW = 38;
         Key.W = 87;
+        Key.P = 80; // often used for pause
         return Key;
     }());
     config.Key = Key;

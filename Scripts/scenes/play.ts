@@ -62,6 +62,7 @@ namespace scenes {
     }
 
     public SetupInput(): void {
+      managers.Input.Start();
       this.on("mousedown", managers.Input.OnLeftMouseDown);
     }
 

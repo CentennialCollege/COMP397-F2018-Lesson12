@@ -48,6 +48,7 @@ var scenes;
             this.Main();
         };
         Play.prototype.SetupInput = function () {
+            managers.Input.Start();
             this.on("mousedown", managers.Input.OnLeftMouseDown);
         };
         Play.prototype.Update = function () {
