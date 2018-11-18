@@ -7,6 +7,7 @@ var managers;
             this.enabled = true;
             document.addEventListener('keydown', this.onKeyDown.bind(this), false);
             document.addEventListener('keyup', this.onKeyUp.bind(this), false);
+            this.gamepad1 = new managers.GamePad(0);
         };
         Input.Stop = function () {
             this.enabled = false;

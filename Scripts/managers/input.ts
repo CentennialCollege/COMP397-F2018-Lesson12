@@ -7,11 +7,14 @@ module managers {
         public static moveLeft: boolean = false;
         public static moveRight: boolean = false;
         public static enabled: boolean = true;
+        public static gamepad1: managers.GamePad;
 
         public static Start() {
             this.enabled = true;
             document.addEventListener('keydown', this.onKeyDown.bind(this), false);
             document.addEventListener('keyup', this.onKeyUp.bind(this), false);
+
+            this.gamepad1 = new managers.GamePad(0);
         }
 
         public static Stop() {

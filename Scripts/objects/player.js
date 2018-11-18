@@ -59,10 +59,10 @@ var objects;
             var degToRad = Math.PI / 180.0;
             // standard movement for top scroller - left and right
             if (managers.Input.moveRight) {
-                this.x += 5;
+                this.x += 10;
             }
             if (managers.Input.moveLeft) {
-                this.x -= 5;
+                this.x -= 10;
             }
             /*
 
@@ -94,6 +94,23 @@ var objects;
 
             if(managers.Input.moveRight) {
                 this.rotation += 5;
+            }
+            */
+            /* gamepad controls
+            if(managers.Input.gamepad1.Axis[config.Gamepad.HORIZONTAL] > 0) {
+                this.x += 10;
+            }
+
+            if(managers.Input.gamepad1.Axis[config.Gamepad.HORIZONTAL] < 0) {
+                this.x -= 10;
+            }
+
+            if(managers.Input.gamepad1.Axis[config.Gamepad.VERTICAL] > 0) {
+                this.y += 5;
+            }
+
+            if(managers.Input.gamepad1.Axis[config.Gamepad.VERTICAL] < 0) {
+                this.y -= 5;
             }
             */
         };

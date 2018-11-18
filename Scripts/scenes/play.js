@@ -53,6 +53,10 @@ var scenes;
         };
         Play.prototype.Update = function () {
             var _this = this;
+            managers.Input.gamepad1.Update();
+            if ((managers.Input.gamepad1.Buttons[0]) && (createjs.Ticker.getTicks() % 7 == 0)) {
+                managers.Game.bulletManager.FireBullet(managers.Game.player.BulletSpawn, util.Vector2.up());
+            }
             this._ocean.Update();
             this._player.Update();
             this._island.Update();
