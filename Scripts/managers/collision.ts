@@ -9,7 +9,7 @@ module managers {
         // private methods
 
         // public methods
-        public static Check(object1: objects.GameObject, object2: objects.GameObject): void {
+        public static Check(object1: objects.SpriteGameObject, object2: objects.SpriteGameObject): void {
 
             if (!object2.IsColliding) {
                 let distance = util.Vector2.Distance(object1.Position, object2.Position);

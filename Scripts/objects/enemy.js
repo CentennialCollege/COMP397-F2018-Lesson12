@@ -55,7 +55,7 @@ var objects;
         Enemy.prototype.Destroy = function () {
         };
         return Enemy;
-    }(objects.GameObject));
+    }(objects.SpriteGameObject));
     objects.Enemy = Enemy;
 })(objects || (objects = {}));
 //# sourceMappingURL=enemy.js.map

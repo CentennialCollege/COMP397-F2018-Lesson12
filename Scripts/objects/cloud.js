@@ -54,7 +54,7 @@ var objects;
         Cloud.prototype.Destroy = function () {
         };
         return Cloud;
-    }(objects.GameObject));
+    }(objects.SpriteGameObject));
     objects.Cloud = Cloud;
 })(objects || (objects = {}));
 //# sourceMappingURL=cloud.js.map

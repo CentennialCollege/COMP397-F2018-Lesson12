@@ -1,9 +1,9 @@
 {
   "name": "comp397-f2018-lesson10",
   "version": "1.0.0",
-  "description": "COMP397 - F2018 - Lesson 10 - Game Controls",
+  "description": "COMP397 - F2018 - Lesson 11 - Animation",
   "main": "index.js",
-  "repository": "https://github.com/CentennialCollege/COMP397-F2018-Lesson10.git",
+  "repository": "https://github.com/CentennialCollege/COMP397-F2018-Lesson11.git",
   "author": "Tom Tsiliopoulos <tsiliopoulos@hotmail.com>",
   "license": "MIT",
   "dependencies": {

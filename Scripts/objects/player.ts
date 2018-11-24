@@ -1,5 +1,5 @@
 module objects {
-    export class Player extends objects.GameObject {
+    export class Player extends objects.SpriteGameObject {
         // private instance variables
         _bulletSpawn:util.Vector2;
 

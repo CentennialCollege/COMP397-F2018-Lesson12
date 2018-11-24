@@ -51,7 +51,7 @@ var objects;
         Island.prototype.Destroy = function () {
         };
         return Island;
-    }(objects.GameObject));
+    }(objects.SpriteGameObject));
     objects.Island = Island;
 })(objects || (objects = {}));
 //# sourceMappingURL=island.js.map

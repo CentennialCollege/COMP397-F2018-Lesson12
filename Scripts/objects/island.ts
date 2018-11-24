@@ -1,5 +1,5 @@
 module objects {
-    export class Island extends objects.GameObject {
+    export class Island extends objects.SpriteGameObject {
         // private instance variables
         private _verticalSpeed:number;
 
