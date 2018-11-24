@@ -59,7 +59,6 @@ module objects {
              this._isColliding = newValue;
          }
  
-         
 
          // constructors
          constructor(imageString:string) {

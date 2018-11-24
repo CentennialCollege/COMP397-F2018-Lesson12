@@ -46,7 +46,7 @@ var objects;
         Ocean.prototype.Destroy = function () {
         };
         return Ocean;
-    }(objects.GameObject));
+    }(objects.BitmapGameObject));
     objects.Ocean = Ocean;
 })(objects || (objects = {}));
 //# sourceMappingURL=ocean.js.map

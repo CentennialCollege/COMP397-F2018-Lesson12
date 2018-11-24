@@ -1,5 +1,5 @@
 module objects {
-    export class Ocean extends objects.GameObject {
+    export class Ocean extends objects.BitmapGameObject {
         // private instance variables
         private verticalSpeed:number;
 
