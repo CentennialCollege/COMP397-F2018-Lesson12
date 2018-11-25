@@ -8,5 +8,6 @@ module managers {
         public static bulletManager:managers.Bullet;
         public static player:objects.Player;
         public static textureMap:createjs.SpriteSheet;
+        public static currentScene:objects.Scene;
     }
 }

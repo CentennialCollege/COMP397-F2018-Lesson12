@@ -30,6 +30,7 @@ module objects {
 
         public Reset(): void {
             this.IsColliding = false;
+            this.alpha = 1.0;
         }        
         
         public Start(): void {

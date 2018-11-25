@@ -13,44 +13,30 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var Coin = /** @class */ (function (_super) {
-        __extends(Coin, _super);
+    var Explosion = /** @class */ (function (_super) {
+        __extends(Explosion, _super);
         // public properties
         // constructor
-        function Coin() {
-            var _this = _super.call(this, "coin") || this;
+        function Explosion() {
+            var _this = _super.call(this, "explosion") || this;
             _this.Start();
             return _this;
         }
         // private methods
-        Coin.prototype._move = function () {
-            this.y += this._verticalSpeed;
-            this._updatePosition();
-        };
-        Coin.prototype._checkBounds = function () {
-            if (this.y > 480 + this.Height) {
-                this.Reset();
-            }
-        };
         // public methods
-        Coin.prototype.Reset = function () {
-            this.IsColliding = false;
-            this.alpha = 1.0;
+        Explosion.prototype.Reset = function () {
         };
-        Coin.prototype.Start = function () {
+        Explosion.prototype.Start = function () {
             this.regX = this.HalfWidth;
             this.regY = this.HalfHeight;
-            this._verticalSpeed = 5;
-            this.Reset();
         };
-        Coin.prototype.Update = function () {
-            this._move();
-            this._checkBounds();
+        Explosion.prototype.Update = function () {
         };
-        Coin.prototype.Destroy = function () {
+        Explosion.prototype.Destroy = function () {
+            this.parent.removeChild(this);
         };
-        return Coin;
+        return Explosion;
     }(objects.SpriteGameObject));
-    objects.Coin = Coin;
+    objects.Explosion = Explosion;
 })(objects || (objects = {}));
-//# sourceMappingURL=coin.js.map
+//# sourceMappingURL=explosion.js.map

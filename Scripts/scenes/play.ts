@@ -79,7 +79,7 @@ namespace scenes {
       this._island.Update();
 
       // check if player and island are colliding
-      managers.Collision.Check(this._player, this._island);
+      managers.Collision.Check(this._player, this._island.Coin);
 
       // Update Each cloud in the Cloud Array
       this._clouds.forEach(cloud => {

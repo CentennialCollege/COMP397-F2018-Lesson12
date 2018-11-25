@@ -86,7 +86,7 @@
         },
         explosion: {
           frames: [15, 16, 17, 18, 19, 20, 21],
-          speed: 0.5
+          speed: 0.1
         },
         island: { frames: [22] },
         plane: {
@@ -143,6 +143,7 @@
         break;
     }
 
+    managers.Game.currentScene = currentScene;
     stage.addChild(currentScene);
   }
 
