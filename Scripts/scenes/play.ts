@@ -111,6 +111,7 @@ namespace scenes {
 
       // adds island to the scene
       this.addChild(this._island);
+      this.addChild(this._island.Coin);
 
       this.addChild(this._enemy);
 

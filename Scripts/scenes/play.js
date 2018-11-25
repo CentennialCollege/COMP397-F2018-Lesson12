@@ -87,6 +87,7 @@ var scenes;
             this.addChild(this._ocean);
             // adds island to the scene
             this.addChild(this._island);
+            this.addChild(this._island.Coin);
             this.addChild(this._enemy);
             // adds player to the scene
             this.addChild(this._player);
