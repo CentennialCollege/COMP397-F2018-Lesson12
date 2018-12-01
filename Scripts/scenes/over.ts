@@ -24,7 +24,7 @@ namespace scenes {
       this._gameOverLabel = new objects.Label(
         "Game Over",
         "60px",
-        "Consolas",
+        "Dock51",
         "#FFFF00",
         320,
         240,
